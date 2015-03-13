@@ -23,6 +23,14 @@ typedef enum OMColorType {
 	OMColorTypeNSWhiteCalibrated,	//[NSColor colorWithCalibratedWhite:0.5 alpha:1.0]
 	OMColorTypeNSWhiteDevice,		//[NSColor colorWithDeviceWhite:0.5 alpha:1.0]
 	OMColorTypeNSConstant,			//[NSColor redColor]
+    
+    OMColorTypeCCRGBA,              //[CCColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:1.0]
+    OMColorTypeCCRGBAInit,          //[CCColor alloc] initWithRed:1.0 green:0.0 blue:0.0 alpha:1.0]
+    OMColorTypeCCRGB,               //[CCColor colorWithRed:1.0 green:0.0 blue:0.0]
+    OMColorTypeCCRGBInit,           //[CCColor alloc] initWithRed:1.0 green:0.0 blue:0.0]
+    OMColorTypeCCWhite,				//[CCColor colorWithWhite:0.5 alpha:1.0]
+    OMColorTypeCCWhiteInit,			//[[CCColor alloc] initWithWhite:0.5 alpha:1.0]
+    OMColorTypeCCConstant,          //[CCColor redColor]
 	
 } OMColorType;
 
@@ -40,11 +48,12 @@ BOOL OMColorTypeIsNSColor(OMColorType colorType) { return colorType >= OMColorTy
 	OMColorType _selectedColorType;
 	NSTextView *_textView;
 	NSDictionary *_constantColorsByName;
-	
-	NSRegularExpression *_rgbaUIColorRegex;
+    
+    NSRegularExpression *_rgbaUICCColorRegex;
+    NSRegularExpression *_rgbCCColorRegex;
 	NSRegularExpression *_rgbaNSColorRegex;
-	NSRegularExpression *_whiteNSColorRegex;
-	NSRegularExpression *_whiteUIColorRegex;
+    NSRegularExpression *_whiteNSColorRegex;
+    NSRegularExpression *_whiteUICCColorRegex;
 	NSRegularExpression *_constantColorRegex;
 }
 
